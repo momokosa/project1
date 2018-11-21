@@ -55,7 +55,10 @@ $route['news'] = 'news';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news/create'] = 'news/create';
 // login
-$route['login'] = 'login';
+$route['SignIn'] = 'login/signin';
+$route['SignOut'] = 'login/signout';
+//main_panel
+$route['main'] = 'main';
 // 404
 $route['404_override'] = '';
 
