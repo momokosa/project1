@@ -46,7 +46,7 @@
 // $route['404_override'] = '';
 
 // Index
-$route['default_controller'] = "welcome";
+$route['default_controller'] = "login";
 // page
 $route['pages'] = 'pages/view';
 $route['pages/(:any)'] = 'pages/view/$1';
