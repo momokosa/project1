@@ -57,8 +57,19 @@ $route['news/create'] = 'news/create';
 // login
 $route['SignIn'] = 'login/signin';
 $route['SignOut'] = 'login/signout';
-//main_panel
+// main rount
 $route['main'] = 'main';
+// admin
+$route['admin'] = 'admin';
+// front
+$route['front'] = 'front';
+// sell
+$route['sell'] = 'sell';
+// debt tracking
+$route['debt'] = 'debt';
+
+// All Pages
+$route['allpage'] = 'allpage';
 // 404
 $route['404_override'] = '';
 

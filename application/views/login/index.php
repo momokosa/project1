@@ -24,6 +24,10 @@
 		if($this->session->flashdata('message') != ''){
 			 echo "<script>alert('".$this->session->flashdata('message')."');</script>";
 		}else
+		if(!$user_id == ''){
+			echo "string";
+			redirect('main');
+		}
 	?>
 <!--===============================================================================================-->
 </head>

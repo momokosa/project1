@@ -8,13 +8,9 @@ class Login extends CI_Controller {
 		$this->load->helper('form');
 	}
 
-	// public function index(){
-	// 	$data['title'] = 'Login';
-    // 	$this->load->view('login/index', $data);
-	// }
-
 	public function index(){
 		$data['title'] = 'Sign In';
+		$data['user_id'] = $this->session->userdata('user_id');
 
 		$this->load->view('login/index', $data);
 	}

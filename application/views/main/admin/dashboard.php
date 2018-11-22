@@ -145,6 +145,12 @@
 							<li>
 								<a href="#">Delete Customer</a>
 							</li>
+							<li>
+								<a href="#">Search by IdCard</a>
+							</li>
+							<li>
+								<a href="#">Search by Location</a>
+							</li>
 						</ul>
 						<!-- /.nav-second-level -->
 					</li>
