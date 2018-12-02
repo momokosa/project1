@@ -34,7 +34,7 @@
                             echo "<td>".$row['last_name']."</td>";
                             echo "<td>".$row['employee_id']."</td>";
                             echo "<td>".$row['role_name']."</td>";
-                            echo "<td><a href='#' class='btn btn-primary a-btn-slide-text'>
+                            echo "<td><a href='".base_url()."main/users_edit/".$row['id']."' class='btn btn-primary a-btn-slide-text'>
                                             <span class='glyphicon glyphicon-edit' aria-hidden='true'></span><span><strong>Edit</strong></span>            
                                             </a></td>";                                
                                 echo "</tr>";
@@ -65,6 +65,6 @@
                 "dom": '<"toolbar">frtip'
             } );
 
-            $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+            $("div.toolbar").html('<b hidden>Custom tool bar! Text/images etc.</b>');
         } );
 	</script>

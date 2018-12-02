@@ -10,10 +10,15 @@ class User_admin_model extends CI_Model {
 		return $query;
     }
 
-	public function get_users(){
-    	$query = $this->db->query('SELECT user_admin.id, username, first_name, last_name, employee_id, role_name
+	public function get_users($id=null){
+			$condition = '';
+			if($id != '' || $id != null){
+				$condition .= ' AND user_admin.id = "'.$id.'" ';
+			}
+    	$query = $this->db->query('SELECT user_admin.id, username, first_name, last_name, employee_id, m_role.id AS role_id, role_name
 			FROM user_admin
-			LEFT JOIN m_role ON user_admin.role = m_role.id');
+			LEFT JOIN m_role ON user_admin.role = m_role.id
+			WHERE 1=1 '.$condition.'');
 		return $query;
     }
 }

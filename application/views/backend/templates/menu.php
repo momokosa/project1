@@ -115,7 +115,7 @@
                             <a href="'.base_url("main/manage_users").'"><i class="fa fa-users fa-fw"></i> Manage Users</a>
                           </li>';
                 }
-                if($user_role == 'Admin'){
+                if($user_role == 'Admin' || $user_role == 'Debt Tracking' || $user_role == 'Sale'){
                     echo '<li>
                             <a href="'.base_url("main/manage_customers").'"><i class="fa fa-users fa-fw"></i> Manage Customers</a>
                           </li>';

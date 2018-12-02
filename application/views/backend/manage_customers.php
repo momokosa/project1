@@ -45,7 +45,7 @@
                                 echo "<td>".$row['birthdate']."</td>";
                                 echo "<td>".$row['address']."</td>";
                                 echo "<td>".$row['status_name']."</td>";
-                                echo "<td><a href='#' class='btn btn-primary a-btn-slide-text'>
+                                echo "<td><a href='".base_url()."main/customers_edit/".$row['id']."' class='btn btn-primary a-btn-slide-text'>
                                             <span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span><span><strong>View</strong></span>            
                                             </a></td>";                                
                                 echo "</tr>";
@@ -66,6 +66,6 @@
                 "dom": '<"toolbar">frtip'
             } );
 
-            $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+            $("div.toolbar").html('<b hidden>Custom tool bar! Text/images etc.</b>');
         } );
 	</script>
