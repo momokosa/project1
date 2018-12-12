@@ -117,7 +117,7 @@
                 }
                 if($user_role == 'Admin' || $user_role == 'Debt Tracking' || $user_role == 'Sale'){
                     echo '<li>
-                            <a href="'.base_url("main/manage_customers").'"><i class="fa fa-users fa-fw"></i> Manage Customers</a>
+                            <a href="'.base_url("main/manage_customers/2").'"><i class="fa fa-users fa-fw"></i> Manage Customers</a>
                           </li>';
                 }
                 ?>

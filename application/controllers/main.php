@@ -35,7 +35,7 @@ class Main extends CI_Controller {
 					break;
 				case '4':
 					$data['user_role'] = 'Debt Tracking';
-			        redirect('main/manage_users', 'refresh');
+			        redirect('main/manage_customers/2', 'refresh');
 					break;
 				default:
 					$data['user_role'] = 'N/A';
@@ -120,10 +120,19 @@ class Main extends CI_Controller {
 		}
 	}
 	
-	public function manage_customers(){
+	public function manage_customers($status_blacklist=null){
 		$data = $this->isRole();
 
-		$data['users_data'] = $this->customers_model->get_customers();
+		if($status_blacklist == null || $status_blacklist == ''){
+			$data['title_status_blacklist'] = 'All';
+		}else if($status_blacklist == '2'){
+			$data['title_status_blacklist'] = 'Blacklist';
+		}else if($status_blacklist == '1'){
+			$data['title_status_blacklist'] = 'Whitelist';
+		}
+
+		// $data['users_data'] = $this->customers_model->get_customers();
+		$data['users_data'] = $this->customers_model->get_customers_as_status_blacklist($status_blacklist);		
         $data['title'] = 'Manage Customers';
         $this->load->view('backend/templates/header', $data);
         $this->load->view('backend/manage_customers', $data);

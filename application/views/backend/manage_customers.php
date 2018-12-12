@@ -1,7 +1,7 @@
 <div id="page-wrapper">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Manage Customers</h1>
+				<h1 class="page-header">Manage Customers - <?php echo $title_status_blacklist;?></h1>
 			</div>
 			<!-- /.col-lg-12 -->
 		</div>
@@ -66,6 +66,7 @@
                 "dom": '<"toolbar">frtip'
             } );
 
-            $("div.toolbar").html('<b hidden>Custom tool bar! Text/images etc.</b>');
+            // $("div.toolbar").html('<b>Custom tool bar! Text/images etc.</b>');
+            $("div.toolbar").html('<a href="<?php echo base_url()."main/manage_customers/2"; ?>" ><button type="button" class="btn btn-danger">Blacklist</button></a> <a href="<?php echo base_url()."main/manage_customers/1"; ?>" ><button type="button" class="btn btn-success">Whitelist</button></a> <a href="<?php echo base_url()."main/manage_customers/"; ?>" ><button type="button" class="btn btn-info">All</button></a>');
         } );
 	</script>
