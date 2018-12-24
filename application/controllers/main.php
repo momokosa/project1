@@ -125,6 +125,8 @@ class Main extends CI_Controller {
 
 		if($status_blacklist == null || $status_blacklist == ''){
 			$data['title_status_blacklist'] = 'All';
+		}else if($status_blacklist == '3'){
+			$data['title_status_blacklist'] = 'VIPlist';
 		}else if($status_blacklist == '2'){
 			$data['title_status_blacklist'] = 'Blacklist';
 		}else if($status_blacklist == '1'){
@@ -189,6 +191,25 @@ class Main extends CI_Controller {
 			}
 			echo '<script>alert("บันทึกสำเส็จ"); window.location.href = "'.base_url().'main/customers_edit/'.$id.'"</script>';
 		}
+	}
+	
+	public function new_customer(){
+		$data = $this->isRole();
+		$data['selectGender'] = $this->main_function->get_gender()->result_array();
+		$data['selectBlacklist'] = $this->main_function->get_blacklist()->result_array();
+		$data['selectReligion'] = $this->main_function->get_religion()->result_array();
+		$data['title'] = 'New Customer';
+		$this->load->view('backend/templates/header', $data);
+        $this->load->view('backend/new_customer', $data);
+        $this->load->view('backend/templates/footer', $data);
+	}
+
+	public function add_customer(){
+		$this->load->helper('url');
+		$this->load->helper('form');
+
+		$this->customers_model->create_customer();
+
 	}
 
 	public function customers_profile(){

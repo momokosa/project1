@@ -67,11 +67,15 @@ $(function() {
         element: 'morris-donut-chart',
         data: [{
             label: "Blacklist",
-            value: 100
+            value: 1000
         }, {
             label: "Whitelist",
-            value: 900
-        }],
+            value: 40000
+        }, {
+            label: "VIPlist",
+            value: 9000
+        
+	}],
         resize: true
     });
 

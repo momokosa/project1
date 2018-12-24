@@ -112,7 +112,7 @@
                 }
                 if($user_role == 'Admin'){
                     echo '<li>
-                            <a href="'.base_url("main/manage_users").'"><i class="fa fa-users fa-fw"></i> Manage Users</a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Manage Users</a>
                           </li>';
                 }
                 if($user_role == 'Admin' || $user_role == 'Debt Tracking' || $user_role == 'Sale'){

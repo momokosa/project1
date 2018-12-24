@@ -190,7 +190,7 @@
 								<i class="fa fa-comments fa-5x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
-								<div class="huge">1,000</div>
+								<div class="huge">50,000</div>
 								<div>Customer Total</div>
 							</div>
 						</div>
@@ -212,7 +212,7 @@
 								<i class="fa fa-tasks fa-5x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
-								<div class="huge">900</div>
+								<div class="huge">45,000</div>
 								<div>Whitelist</div>
 							</div>
 						</div>
@@ -234,7 +234,7 @@
 								<i class="fa fa-support fa-5x"></i>
 							</div>
 							<div class="col-xs-9 text-right">
-								<div class="huge">100</div>
+								<div class="huge">1,000</div>
 								<div>Backlist</div>
 							</div>
 						</div>
@@ -254,7 +254,7 @@
 			<div class="col-lg-8">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<i class="fa fa-bar-chart-o fa-fw"></i> Customer Area Chart
+						<i class="fa fa-bar-chart-o fa-fw"></i> Net Add Area Chart
 						<div class="pull-right">
 							<div class="btn-group">
 								<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">

@@ -113,6 +113,9 @@
 								<a href="#">Show All Customer</a>
 							</li>
 							<li>
+								<a href="#">Black List Customer</a>
+							</li>
+							<li>
 								<a href="#">Add New Customer</a>
 							</li>
 							<li>
