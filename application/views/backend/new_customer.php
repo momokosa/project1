@@ -94,7 +94,7 @@
                             </div> 
                         </div>
                         <div class="form-group" style=" text-align: right; ">  
-                            <button type="reset" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('main/manage_customers/2')?>'">ย้อนกลับ</button>
+                            <button type="reset" class="btn btn-default" onclick="window.location.href = '<?php echo base_url('main/manage_customers_search')?>'">ย้อนกลับ</button>
                             <?php if($user_role != 'Sale'){
                                 echo '<button type="submit" class="btn btn-primary">บันทึก</button>';
                             }?>                            

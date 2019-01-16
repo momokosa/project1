@@ -27,15 +27,22 @@ class Main extends CI_Controller {
 					break;
 				case '2':
 					$data['user_role'] = 'Front';
-					redirect('front', 'refresh');
+					$data['title'] = 'Manage Customers';
+					$data['user_full_name'] = $this->session->userdata('first_name')." ".$this->session->userdata('last_name');
+					// redirect('front', 'refresh');
+					redirect('main/manage_customers_search', 'refresh');
 					break;
 				case '3':
 					$data['user_role'] = 'Sale';
-					redirect('main/manage_users', 'refresh');
+					redirect('main/manage_customers_search', 'refresh');
 					break;
 				case '4':
 					$data['user_role'] = 'Debt Tracking';
-			        redirect('main/manage_customers/2', 'refresh');
+					$data['title'] = 'Dashboard';
+					$data['user_full_name'] = $this->session->userdata('first_name')." ".$this->session->userdata('last_name');
+			        $this->load->view('backend/templates/header', $data);
+			        $this->load->view('backend/dashboard', $data);
+			        $this->load->view('backend/templates/footer', $data);
 					break;
 				default:
 					$data['user_role'] = 'N/A';
@@ -141,6 +148,27 @@ class Main extends CI_Controller {
         $this->load->view('backend/templates/footer', $data);
 	}
 
+	public function manage_customers_search(){
+		$data = $this->isRole();
+
+		$search_type = $this->input->post('search_type');
+		$search_input = $this->input->post('search_input');
+		$data['search_input'] = $search_input;
+
+		if($search_type == null || $search_type == ''){
+			$search_type = '1';
+			$data['search_type'] = '1';
+		}else{
+			$data['search_type'] = $search_type;
+		}
+		
+		$data['users_data'] = $this->customers_model->get_customers_as_search($search_type, $search_input);
+		$data['title'] = 'Manage Customers';
+		$this->load->view('backend/templates/header', $data);
+		$this->load->view('backend/manage_customers_search', $data);
+        $this->load->view('backend/templates/footer', $data);
+	}
+
 	public function customers_edit($id=null){
 		$data = $this->isRole();
 		$data['users_data'] = $this->customers_model->get_customers($id)->result_array();
@@ -174,21 +202,22 @@ class Main extends CI_Controller {
 			"gender_id" => $gender,
 			"birthdate" => $birthday,
 			"religion_id" => $religion,
+			"cust_address" => $address,
 			"status_blacklist" => $BW
 		);
-		$data_address = array (
-			"address" => $address,
-			"customer_id" => $id
-		);
+		// $data_address = array (
+		// 	"address" => $address,
+		// 	"customer_id" => $id
+		// );
 		$this->db->where('id', $id);
 		if($this->db->update('customers', $data)){
 
-			$query = $this->db->get_where('customers_address', array('customer_id' => $id));
-			if($query->num_rows()>0){
-				$this->db->update('customers_address', $data_address, array('customer_id' => $id));
-			}else{
-				$this->db->insert('customers_address', $data_address);
-			}
+			// $query = $this->db->get_where('customers_address', array('customer_id' => $id));
+			// if($query->num_rows()>0){
+			// 	$this->db->update('customers_address', $data_address, array('customer_id' => $id));
+			// }else{
+			// 	$this->db->insert('customers_address', $data_address);
+			// }
 			echo '<script>alert("บันทึกสำเส็จ"); window.location.href = "'.base_url().'main/customers_edit/'.$id.'"</script>';
 		}
 	}

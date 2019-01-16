@@ -8,7 +8,7 @@
 		<!-- /.row -->
 		<div class="row" <?php if($user_role == 'Sale') echo "hidden";?> >
             <div style="float: right; margin-right: 15px; margin-bottom: 15px;">
-                <a href="<?php echo base_url()."main/new_customer/"; ?>" ><button type="button" class="btn btn-info" style="background-color: #337ab7;">New Customer</button></a>
+                <a href="<?php echo base_url()."main/new_customer/"; ?>" ><button type="button" class="btn btn-info" style="background-color: #337ab7;">Add New Customer</button></a>
             </div>
 		</div>
 		<!-- /.row -->
@@ -17,8 +17,7 @@
                 <table id="table_users" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>id</th>
-                            <th>เลขบัตรประชาชน</th>
+                        <th>ID Card</th>
                             <th>ชื่อ - นามสกุล</th>
                             <th>ที่อยู่</th>
                             <th>Contact</th>
@@ -35,7 +34,7 @@
                                 echo "<tr>";
                             }
                                 // echo "<tr>";
-                                echo "<td>".$row['id']."</td>";
+                               // echo "<td>".$row['id']."</td>";
                                 echo "<td>".$row['national_id_card']."</td>";
                                 echo "<td>".$row['name_title'].$row['first_name']." ".$row['middle_name']." ".$row['last_name']."</td>";
                                 //echo "<td>".$row['nick_name']."</td>";                            
@@ -63,6 +62,8 @@
     <script >
         $(document).ready(function() {
             $('#table_users').DataTable( {
+                "ordering": false,
+                "searching": false,
                 "dom": '<"toolbar">frtip'
             } );
 

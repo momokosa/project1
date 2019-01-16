@@ -105,19 +105,19 @@
                     <!-- /input-group -->
                 </li>
                 <?php
-                if($user_role == 'Admin'){
+                if($user_role == 'Admin'|| $user_role == 'Debt Tracking'|| $user_role == 'Sale'|| $user_role == 'Front'){
                     echo '<li>
                             <a href="'.base_url("main/dashboard").'"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                           </li>';
                 }
                 if($user_role == 'Admin'){
                     echo '<li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Manage Users</a>
+                            <a href="'.base_url("main/manage_users").'"><i class="fa fa-users fa-fw"></i> Manage Users</a>
                           </li>';
                 }
-                if($user_role == 'Admin' || $user_role == 'Debt Tracking' || $user_role == 'Sale'){
+                if($user_role == 'Admin' || $user_role == 'Debt Tracking' || $user_role == 'Sale'|| $user_role == 'Front'){
                     echo '<li>
-                            <a href="'.base_url("main/manage_customers/2").'"><i class="fa fa-users fa-fw"></i> Manage Customers</a>
+                            <a href="'.base_url("main/manage_customers_search").'"><i class="fa fa-users fa-fw"></i> Manage Customers</a>
                           </li>';
                 }
                 ?>

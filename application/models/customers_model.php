@@ -11,7 +11,7 @@ class Customers_model extends CI_Model {
 			$condition .= ' AND customers.id = "'.$id.'" ';
 		}
 		$query = $this->db->query('SELECT customers.id, national_id_card, name_title, first_name, middle_name, last_name, nick_name, 
-			gender_id, gender_name, birthdate, religion_id, religion_name, address, 
+			gender_id, gender_name, birthdate, religion_id, religion_name, cust_address AS address, 
 			status_active, status_blacklist, status_name
 			FROM customers
 			LEFT JOIN master_religion ON customers.religion_id = master_religion.id
@@ -40,6 +40,37 @@ class Customers_model extends CI_Model {
 			// echo $query; exit;
 			return $query;
 	}
+
+	public function get_customers_as_search($search_type=null, $search_input=null){
+		$condition = '';
+		
+		if($search_input != '' || $search_input != null){
+			if($search_type == '1'){
+				$condition .= ' AND customers.national_id_card LIKE "%'.$search_input.'%" ';
+			}else if($search_type == '2'){
+				$full_name = (explode(" ",$search_input));
+				if(count($full_name)>1){
+					$condition .= ' AND customers.first_name LIKE "%'.$full_name[0].'%" OR customers.last_name LIKE "%'.$search_input[1].'%" ';
+				}else{
+					$condition .= ' AND customers.first_name LIKE "%'.$search_input.'%" OR customers.last_name LIKE "%'.$search_input.'%" ';
+				}				
+			}else if($search_type == '3'){
+				$condition .= ' AND customers.cust_address LIKE "%'.$search_input.'%" ';
+			}
+		}else{
+			$condition .= ' AND 1!=1 ';
+		}
+
+		$query = $this->db->query('SELECT customers.id, national_id_card, name_title, first_name, middle_name, last_name, nick_name, 
+			gender_id, gender_name, birthdate, religion_id, religion_name, cust_address AS address, 
+			status_active, status_blacklist, status_name
+			FROM customers
+			LEFT JOIN master_religion ON customers.religion_id = master_religion.id
+			LEFT JOIN master_gender ON customers.gender_id = master_gender.id
+			LEFT JOIN master_blacklist ON customers.status_blacklist = master_blacklist.id
+			WHERE 1=1 '.$condition.' ');
+		return $query;
+	}
 	
 	public function create_customer(){
 		$this->load->helper('url');
@@ -63,6 +94,7 @@ class Customers_model extends CI_Model {
 			"gender_id" => $gender,
 			"birthdate" => $birthday,
 			"religion_id" => $religion,
+			"cust_address" => $address,
 			"status_blacklist" => $BW
 		);
 
