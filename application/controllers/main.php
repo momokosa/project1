@@ -253,15 +253,6 @@ class Main extends CI_Controller {
 	}
 
 	/* test user git with Branch
-	    public function customers_profile(){
-    		$data = $this->isRole();
-
-    		$data['users_data'] = $this->customers_model->get_customers();
-
-            $data['title'] = 'Manage Customers';
-            $this->load->view('backend/templates/header', $data);
-            $this->load->view('backend/manage_customers', $data);
-            $this->load->view('backend/templates/footer', $data);
-    	}
+	1
 	*/
 }
